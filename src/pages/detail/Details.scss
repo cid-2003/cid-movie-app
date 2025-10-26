@@ -1,0 +1,67 @@
+@use "../../scss/" as *;
+
+
+.banner {
+    height: 100vh; // Par exemple, 50% de la hauteur de la vue
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 3rem; // Pour un espacement avec le contenu
+    position: relative; // Si vous ajoutez un overlay
+    
+    // Optionnel : un overlay semi-transparent pour améliorer la lisibilité du texte
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Overlay noir semi-transparent */
+    }
+}
+
+.movie-content {
+    padding-top: 8rem; // Ajoutez de l'espace en haut
+    margin-top: -100px;
+    
+    // Structure similaire à hero-slide__item__content pour les détails
+    &__details {
+       // @include flex(flex-start, flex-start); // Alignement normal
+        display: flex;
+        gap: 2rem;
+        padding: 0 3rem;
+        align-items: center;
+        padding-top: 20rem;
+        padding-bottom: 20rem;
+        
+        @include tablet {
+            display: block;// Empilement sur tablette
+        }
+    }
+
+    &__details__info {
+        width: calc(100% - 350px - 3rem); // Reste de la largeur disponible
+        
+        @include tablet {
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        & > * ~ * {
+            margin-top: 1.5rem; // Espacement normal
+        }
+
+        // 🛑 RÈGLE CRITIQUE : Assurez-vous que le titre, l'aperçu et les boutons sont visibles !
+        .title, .overview, .btns {
+            opacity: 1 !important; // Force la visibilité
+            transform: none !important; // Annule la transformation
+            transition: none !important; // Annule les transitions d'animation
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+    }
+}

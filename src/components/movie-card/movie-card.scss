@@ -1,0 +1,46 @@
+@use "../../scss/" as *;
+
+.movie-card {
+  position: relative;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // Détermine la hauteur en fonction de la largeur (ratio 1:1.6)
+  padding-top: 160%;
+  border-radius: $border-radius;
+  margin-bottom: 1rem;
+
+  // Bouton de lecture centré (initialement caché/mis à l'échelle à 0)
+  .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  // Overlay sombre (pseudo-élément :before)
+  &:before {
+    content: "";
+    position: absolute;
+    // Raccourci pour top, left, bottom, right: 0
+    inset: 0;
+    background-color: $black;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: $border-radius;
+  }
+
+  // Styles spécifiques au survol (uniquement sur les appareils à pointeur fin)
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      &:before {
+        opacity: 0.8; // Affichage de l'overlay
+      }
+
+      .btn {
+        transform: translate(-50%, -50%) scale(1); // Zoom du bouton de lecture
+      }
+    }
+  }
+}

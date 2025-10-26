@@ -1,0 +1,40 @@
+@use "./../../scss/breakpoint" as *;
+
+.movie-list__wrapper {
+  // Défilement horizontal natif
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 20px;
+
+  // Masquage de la barre de défilement pour plusieurs navigateurs
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  // Masquage spécifique Chrome/Safari
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.movie-list__content {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 15px;
+}
+
+.movie-list__item {
+  // Empêche le rétrécissement et définit le point d'arrêt du défilement
+  flex-shrink: 0;
+  scroll-snap-align: start;
+
+  // Largeurs responsives pour les cartes
+  width: 15%;
+
+  @include tablet {
+    width: 30%;
+  }
+
+  @include mobile {
+    width: 40%;
+  }
+}
