@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="footer__content__logo">
           <div className="logo">
             {/* Logo */}
-            <img src={logo} alt="logo" style={{ width: "150px" }} />
+            <img src={logo} alt="logo" style={{ width: "150px", margin: "-10px" }} />
           </div>
         </div>
 
