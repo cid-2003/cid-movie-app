@@ -53,7 +53,7 @@ const Header = () => {
             <img 
               src={logo} 
               alt="logo" 
-              style={{ width: "180px" }} 
+              style={{ width: "180px", margin: "20px" }} 
             />
           </Link>
         </div>
