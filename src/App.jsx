@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Header />
 
-      <Home />
+      <AppRoutes />
 
       <Footer />
     </BrowserRouter>
