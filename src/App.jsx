@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <BrowserRouter basename={`/${Config.HOME_PAGE}`}>
+    <BrowserRouter>
       <Header />
 
       <AppRoutes />
