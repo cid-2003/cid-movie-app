@@ -6,11 +6,12 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import AppRoutes from "./routes/Routes";
+import * as Config from './constants/Config';
 import Home from "./pages/Home";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={`/${Config.HOME_PAGE}`}>
       <Header />
 
       <AppRoutes />
