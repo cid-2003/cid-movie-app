@@ -42,7 +42,7 @@ const CastList = (props) => {
           // 💡 Utilisation de item.credit_id ou item.id comme clé, plus stable que l'index
           <div className="cast__item" key={item.credit_id || item.id}>
             <div
-              className="casts__item__img"
+              className="image"
               style={{
                 backgroundImage: `url(${
                   item.profile_path
